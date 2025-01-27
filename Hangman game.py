@@ -147,7 +147,7 @@ while not game_over:
         
         if lives ==  0:
             game_over = True 
-            print("************************ IT WAS {word}! YOU LOSE **************************")
+            print(f"************************ IT WAS {word}! YOU LOSE **************************")
             print(f"The word was {word}")
     
     if "_ " not in display:
