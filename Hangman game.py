@@ -29,70 +29,62 @@ words_list = [
 
 
 # Hangman stages
-hangman_stages = [
-    """
-     ----- 
-     |   | 
-     O   | 
-    /|\\  | 
-     |   | 
-    /    | 
-    """, 
-    
-    """
-     ----- 
-     |   | 
-     O   | 
-    /|\\  | 
-     |   | 
-         | 
-    """,  
-
-    """
-     ----- 
-     |   | 
-     O   | 
-    /|   | 
-     |   | 
-         | 
-    """,  
-
-    """
-     ----- 
-     |   | 
-     O   | 
-     |   | 
-     |   | 
-         | 
-    """,  
-
-    """
-     ----- 
-     |   | 
-     O   | 
-         | 
-         | 
-         | 
-    """,  
-
-    """
-     ----- 
-     |   | 
-     O   | 
-         | 
-         | 
-         | 
-    """,  
-
-    """
-     ----- 
-     |   | 
-         | 
-         | 
-         | 
-         | 
-    """   
-]
+hangman_stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
 
 
 logo = ''' 
@@ -112,7 +104,6 @@ lives = 6
 
 # Generate random word from list
 word = random.choice(words_list)
-print(word)
 
 
 # Create empty space 
@@ -127,7 +118,11 @@ game_over = False
 correct_letter = []
 
 while not game_over:
+    print(f'****************** {lives} LIVES LEft ****************')
+    
+    
     guess= input('Guess the letter: ').lower() 
+
 
     display = ""
 
@@ -148,14 +143,16 @@ while not game_over:
     
     if guess not in word:
         lives -= 1
+        print(f"You guessed {guess}, that's not in the word. You lose a life")
+        
         if lives ==  0:
             game_over = True 
-            print("You Lose ")
+            print("************************ IT WAS {word}! YOU LOSE **************************")
             print(f"The word was {word}")
     
     if "_ " not in display:
         game_over = True
-        print("YOU WIN ")
+        print("************************ YOU WIN **************************")
         
         
     print(hangman_stages[lives])
