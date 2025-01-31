@@ -118,7 +118,7 @@ game_over = False
 correct_letter = []
 
 while not game_over:
-    print(f'****************** {lives} LIVES LEft ****************')
+    print(f'****************** {lives} LIVES Left ****************')
     
     
     guess= input('Guess the letter: ').lower() 
@@ -148,7 +148,7 @@ while not game_over:
         if lives ==  0:
             game_over = True 
             print(f"************************ IT WAS {word}! YOU LOSE **************************")
-            print(f"The word was {word}")
+            print(f"The word was {word} ")
     
     if "_ " not in display:
         game_over = True
